@@ -45,6 +45,8 @@ It is meant for quick revision, practice, and better understanding of core topic
 - Some topics may be updated over time
 - This repo is mainly for personal learning and reference
 
+![Progress GIF](https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif)
+
 ## License
 
 For personal learning and educational use.
