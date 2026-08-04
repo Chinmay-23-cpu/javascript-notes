@@ -1,0 +1,219 @@
+# Scope & Closures
+
+> 📚 Chapter 4 of Functions
+
+---
+
+## 📖 Imagine This...
+
+Imagine you have a locker.
+
+Only **you** have the key.
+
+Nobody outside can access what's inside.
+
+A **closure** works in a similar way.
+
+A function can "remember" variables from the place where it was created, even after that place has finished executing.
+
+---
+
+# 🤔 First, let's revise Scope
+
+Scope decides **where a variable can be accessed.**
+
+There are three types of scope:
+
+- Global Scope
+- Function Scope
+- Block Scope
+
+Example
+
+```javascript
+let name = "Chinmay"; // Global
+
+function greet() {
+
+    let message = "Hello"; // Function Scope
+
+    console.log(name);
+    console.log(message);
+
+}
+
+greet();
+```
+
+### Output
+
+```text
+Chinmay
+Hello
+```
+
+Notice that `greet()` can access the global variable.
+
+---
+
+# 🤔 What is a Closure?
+
+A **closure** is created when an inner function remembers variables from its outer function, even after the outer function has finished.
+
+Don't worry if that sounds confusing.
+
+Let's see an example.
+
+---
+
+# 💻 Example
+
+```javascript
+function outer() {
+
+    let count = 0;
+
+    function inner() {
+        count++;
+        console.log(count);
+    }
+
+    return inner;
+
+}
+
+const counter = outer();
+
+counter();
+counter();
+counter();
+```
+
+### Output
+
+```text
+1
+2
+3
+```
+
+---
+
+# 🧠 How did `count` not disappear?
+
+Normally, local variables are removed after a function finishes.
+
+But here,
+
+`inner()` still needs `count`.
+
+So JavaScript keeps it alive.
+
+This is called a **Closure**.
+
+---
+
+# 🌍 Real-Life Example
+
+Think of a backpack.
+
+```text
+Outer Function
+
+↓
+
+Creates Backpack 🎒
+
+↓
+
+Inner Function
+
+↓
+
+Carries the Backpack Everywhere
+```
+
+Even after leaving home,
+
+you still have everything inside your backpack.
+
+Similarly,
+
+the inner function carries the variables of its outer function.
+
+---
+
+# 🤔 Why are Closures Useful?
+
+Closures are commonly used to:
+
+- Keep data private
+- Create counters
+- Remember values
+- Event listeners
+- Callbacks
+
+You'll see them a lot in React and JavaScript libraries.
+
+---
+
+# ⚠️ Common Mistakes
+
+### ❌ Thinking the outer variable is destroyed
+
+If an inner function still uses it,
+
+JavaScript keeps it alive.
+
+---
+
+### ❌ Thinking every nested function is a closure
+
+A closure is useful when the inner function **actually remembers and uses** variables from the outer function.
+
+---
+
+# 📝 Quick Revision
+
+- Scope decides where variables can be accessed.
+- A closure remembers variables from its outer function.
+- Inner functions can access outer variables.
+- Closures help preserve data between function calls.
+- They're widely used in modern JavaScript.
+
+---
+
+# 💻 Mini Exercise
+
+Predict the output.
+
+```javascript
+function outer() {
+
+    let name = "JavaScript";
+
+    return function () {
+        console.log(name);
+    };
+
+}
+
+const show = outer();
+
+show();
+```
+
+---
+
+# 📌 Key Takeaways
+
+- Scope controls variable accessibility.
+- Closures allow functions to remember outer variables.
+- Inner functions keep access to outer variables even after the outer function finishes.
+- Closures are useful for data privacy and maintaining state.
+
+---
+
+⬅️ Previous: `03-Return-Keyword.md`
+
+➡️ Next: `05-Callbacks-and-Higher-Order-Functions.md`
