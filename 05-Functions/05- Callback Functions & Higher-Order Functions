@@ -1,0 +1,184 @@
+# Callback Functions & Higher-Order Functions
+
+> 📚 Chapter 5 of Functions
+
+---
+
+## 📖 Imagine This...
+
+Suppose you order food online.
+
+You don't wait outside the restaurant.
+
+Instead, you tell the delivery app,
+
+> "When the food arrives, call me."
+
+The app stores your phone number and calls you later.
+
+That phone call is similar to a **callback function**.
+
+---
+
+# 🤔 What is a Callback Function?
+
+A **callback** is simply a function passed as an argument to another function.
+
+Example
+
+```javascript
+function greet(name) {
+    console.log("Hello " + name);
+}
+
+function processUser(callback) {
+    callback("Chinmay");
+}
+
+processUser(greet);
+```
+
+### Output
+
+```text
+Hello Chinmay
+```
+
+Here,
+
+- `greet` is the callback.
+- `processUser` calls it.
+
+---
+
+# 🤔 What is a Higher-Order Function?
+
+A **Higher-Order Function (HOF)** is a function that:
+
+- accepts another function as an argument, or
+- returns another function.
+
+If a function does either of these, it's called a Higher-Order Function.
+
+In the previous example,
+
+```javascript
+processUser()
+```
+
+is a Higher-Order Function because it accepts another function.
+
+---
+
+# 💻 Another Example
+
+```javascript
+function calculate(a, b, operation) {
+    return operation(a, b);
+}
+
+function add(x, y) {
+    return x + y;
+}
+
+console.log(calculate(5, 3, add));
+```
+
+### Output
+
+```text
+8
+```
+
+Here,
+
+- `add` is the callback.
+- `calculate` is the Higher-Order Function.
+
+---
+
+# 🌍 Where are They Used?
+
+Callbacks are everywhere in JavaScript.
+
+Examples:
+
+- Button click events
+- API requests
+- Timers (`setTimeout`)
+- Array methods (`map`, `filter`, `forEach`)
+- Event listeners
+
+You'll use them constantly while working with the DOM and React.
+
+---
+
+# ⚠️ Common Mistakes
+
+### ❌ Calling the function instead of passing it
+
+Wrong
+
+```javascript
+processUser(greet());
+```
+
+Correct
+
+```javascript
+processUser(greet);
+```
+
+`greet()` executes immediately.
+
+`greet` passes the function itself.
+
+---
+
+### ❌ Thinking callbacks are special
+
+They're just normal functions.
+
+The only difference is **where they're passed**.
+
+---
+
+# 📝 Quick Revision
+
+- A callback is a function passed to another function.
+- A Higher-Order Function accepts or returns a function.
+- Callbacks help JavaScript perform actions later.
+- They're heavily used in DOM events and asynchronous programming.
+
+---
+
+# 💻 Mini Exercise
+
+Predict the output.
+
+```javascript
+function sayHi(name) {
+    console.log("Hi " + name);
+}
+
+function welcome(callback) {
+    callback("Alex");
+}
+
+welcome(sayHi);
+```
+
+---
+
+# 📌 Key Takeaways
+
+- Callback = Function passed as an argument.
+- Higher-Order Function = Function that accepts or returns a function.
+- Every callback is a normal function.
+- You'll use these concepts throughout modern JavaScript.
+
+---
+
+⬅️ Previous: `04-Scope-and-Closures.md`
+
+➡️ Next: `06-IIFE.md`

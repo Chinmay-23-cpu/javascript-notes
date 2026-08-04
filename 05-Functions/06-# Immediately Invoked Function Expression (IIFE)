@@ -1,0 +1,203 @@
+# Immediately Invoked Function Expression (IIFE)
+
+> 📚 Chapter 6 of Functions
+
+---
+
+## 📖 Imagine This...
+
+Suppose you need to perform a task **only once** when your program starts.
+
+For example,
+
+- Display a welcome message.
+- Initialize a game.
+- Set up some variables.
+
+You don't need to call the function later.
+
+You just want it to run immediately.
+
+That's where an **IIFE** comes in.
+
+---
+
+# 🤔 What is an IIFE?
+
+An **Immediately Invoked Function Expression (IIFE)** is a function that runs as soon as it is created.
+
+Instead of creating a function and calling it separately,
+
+we do both at once.
+
+---
+
+# 🧠 Syntax
+
+```javascript
+(function () {
+
+    console.log("Hello!");
+
+})();
+```
+
+### Output
+
+```text
+Hello!
+```
+
+The function is created and executed immediately.
+
+---
+
+# 💻 Without IIFE
+
+Normally we write:
+
+```javascript
+function greet() {
+    console.log("Hello!");
+}
+
+greet();
+```
+
+Two steps:
+
+1. Create the function.
+2. Call the function.
+
+---
+
+# 💻 With IIFE
+
+```javascript
+(function () {
+    console.log("Hello!");
+})();
+```
+
+One step.
+
+The function is created and executed immediately.
+
+---
+
+# 🤔 Why are Parentheses Needed?
+
+If we write
+
+```javascript
+function () {
+    console.log("Hello");
+}
+```
+
+JavaScript throws an error.
+
+Wrapping the function in parentheses tells JavaScript:
+
+> "Treat this as a function expression."
+
+Then the final `()` immediately calls it.
+
+---
+
+# 💻 IIFE with Parameters
+
+```javascript
+(function (name) {
+
+    console.log("Hello " + name);
+
+})("Chinmay");
+```
+
+### Output
+
+```text
+Hello Chinmay
+```
+
+---
+
+# 🌍 Where are IIFEs Used?
+
+Before modern JavaScript introduced modules,
+
+IIFEs were commonly used to:
+
+- Avoid creating global variables.
+- Keep variables private.
+- Run setup code immediately.
+
+Today, they're less common but you may still see them in older projects.
+
+---
+
+# ⚠️ Common Mistakes
+
+### ❌ Forgetting the final ()
+
+```javascript
+(function () {
+    console.log("Hello");
+});
+```
+
+The function is created,
+
+but never executed.
+
+---
+
+### ❌ Forgetting the parentheses
+
+```javascript
+function () {
+    console.log("Hello");
+}();
+```
+
+This causes a syntax error.
+
+---
+
+# 📝 Quick Revision
+
+- IIFE stands for Immediately Invoked Function Expression.
+- It runs as soon as it is created.
+- Parentheses turn the function into an expression.
+- The final `()` executes the function.
+- Mostly seen in older JavaScript code.
+
+---
+
+# 💻 Mini Exercise
+
+Predict the output.
+
+```javascript
+(function (age) {
+
+    console.log(age);
+
+})(20);
+```
+
+---
+
+# 📌 Key Takeaways
+
+- IIFEs execute immediately.
+- They don't need to be called separately.
+- They were commonly used to avoid polluting the global scope.
+- Modern JavaScript modules have reduced the need for IIFEs.
+
+---
+
+⬅️ Previous: `05-Callbacks-and-Higher-Order-Functions.md`
+
+➡️ Next: `06-Objects/01-Objects.md`
